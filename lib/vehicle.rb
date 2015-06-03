@@ -28,4 +28,12 @@ class Vehicle
     current = Time.new(2015)
     vehicle_age = current.year() - @year 
   end 
+  define_method(:worth_buying?) do
+    american_cars = %w(GM, Ford, Buick)
+    if american_cars.include?(@make) && @year >= 15
+      true
+    else
+      false
+    end
+  end 
 end
