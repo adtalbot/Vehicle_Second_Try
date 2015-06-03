@@ -34,10 +34,16 @@ class Vehicle
   end 
   define_method(:worth_buying?) do
     american_cars = %w(GM, Ford, Buick)
-    if american_cars.include?(@make) && @year.<=(15)
-      true
-    else
-      false
+    american_cars.include?(@make) && @year.<=(15)
+  end
+
+  define_singleton_method(:find) do |identification|
+    found_vehicle = nil
+    @@vehicles.each() do |vehicle|
+      if vehicle.id().eql?(identification.to_i())
+        found_vehicle = vehicle   
+      end     
     end
-  end 
+    found_vehicle
+  end  
 end
