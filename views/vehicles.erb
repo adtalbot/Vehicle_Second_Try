@@ -1,8 +1,8 @@
-<h1>Vehicles</h1>
+<h1>Our Inventory</h1>
 
-<h3>Here are the vehicles on this lot: </h3>
+<% @vehicles.each() do |vehicle| %>
 <ul>
-  <% @vehicles.each() do |vehicle| %>
-    <li><a href="/vehicles/<%= vehicle.id() %>"><%= vehicle.model() %></a></li>
-  <% end %>
+  <li><a href='/vehicles/<%= vehicle.id() %>'><%= vehicle.model() %></a></li>
 </ul>
+<% end %>
+  
